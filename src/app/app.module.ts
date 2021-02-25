@@ -8,9 +8,11 @@ import { LeagueComponent } from './league/league.component';
 import { PlayerComponent } from './player/player.component';
 import { TeamComponent } from './team/team.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TeamDetailsComponent } from './team-details/team-details.component';
+import { PlayerDetailsComponent } from './player-details/player-details.component';
+import { PlayerDetailsModalComponent } from './player-details-modal/player-details-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,15 @@ import { TeamDetailsComponent } from './team-details/team-details.component';
     PlayerComponent,
     TeamComponent,
     HomeComponent,
-    TeamDetailsComponent
+    TeamDetailsComponent,
+    PlayerDetailsComponent,
+    PlayerDetailsModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

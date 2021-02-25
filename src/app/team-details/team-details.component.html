@@ -4,8 +4,8 @@
 
     <ul *ngIf="players">
         <li *ngFor="let player of players">
-            <a href="">{{player['Nombre del Jugador']}}</a>
+            <a [routerLink]="['/players', player['id']]">{{player['Nombre del Jugador']}}</a>
         </li>
     </ul>
-    
+
 </ng-container>

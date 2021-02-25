@@ -1,0 +1,10 @@
+<p>player-details works!</p>
+<ng-container *ngIf="content_ready">
+    {{player[0]['Nombre del Jugador']}}
+    <p>Nombre del equipo {{player_team[0]['Nombre del equipo']}}</p>
+
+
+    <app-player-details-modal [player]="player" [team]="player_team"></app-player-details-modal>
+
+</ng-container>
+

@@ -1,0 +1,16 @@
+<p>player-details-modal works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)" novalidate>
+    <label>Nombre jugador</label>
+    <input type="text" formControlName="name">
+    
+    <label>Equipo</label>
+    <input type="text" formControlName="team">
+    
+    <label>Avatar</label>
+    <input type="text" formControlName="avatar">
+
+    <button type="submit" [disabled]="!form.valid">
+        Save
+    </button>
+
+</form>
