@@ -1,0 +1,10 @@
+<p>team works!</p>
+<p>Hay un total de {{teams.length}} equipos.</p>
+
+<ul *ngIf="teams">
+    <ng-container *ngFor="let team of teams; let i = index">
+        <li *ngIf="i <= 10">
+            <a [routerLink]="['/teams', team['id']]">{{team['Nombre del equipo']}}</a>
+        </li>
+    </ng-container>
+</ul>
