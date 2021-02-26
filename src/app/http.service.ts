@@ -29,6 +29,10 @@ export class HttpService {
     return this.http.get(GlobalConstants.apiURL+'players', {params: params});
   }
 
+  getPlayers(){
+    return this.http.get(GlobalConstants.apiURL + 'players');
+  }
+
   getPlayerById(id_player:string){
     let params= new HttpParams().set("id", id_player);
     return this.http.get(GlobalConstants.apiURL+'players', {params: params});

@@ -1,1 +1,25 @@
-<p>search works!</p>
+<input type="text" [(ngModel)]="searchInput" (keyup)="onKey()" (focus)="showResultsContainer()" (focusout)="hideResultsContainer()">
+
+<div *ngIf="showResults">
+    <div class="container">
+        <div class="teams" *ngIf="teams_coincidences.length > 0">
+            <p>Teams</p>
+            <ul>
+                <li *ngFor="let team of teams_coincidences">
+                    {{team['Nombre del equipo']}}
+                </li>
+            </ul>
+        </div>
+
+        <div class="players" *ngIf="players_coincidences.length > 0">
+            <p>Players</p>
+            <ul>
+                <li *ngFor="let player of players_coincidences">
+                    {{player['Nombre del Jugador']}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+

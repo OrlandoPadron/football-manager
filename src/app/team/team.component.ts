@@ -1,5 +1,4 @@
-import { HttpService } from './../http.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-team',
@@ -8,14 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  teams: any = [];
-  constructor(private _http:HttpService) { }
+  @Input() teams: any;
+  constructor() { }
 
   ngOnInit(): void {
-    this._http.getTeams().subscribe(data=>{
-      this.teams = data; 
-      console.log(this.teams);
-    });
   }
 
 }
