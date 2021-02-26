@@ -7,6 +7,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class SearchComponent implements OnInit, OnChanges {
 
+  @Input() leagues:any;
   @Input() teams:any;
   @Input() players:any;
   
@@ -16,6 +17,7 @@ export class SearchComponent implements OnInit, OnChanges {
 
   playersDataIsReady = false;
   teamsDataIsReady= false;
+  leaguesDataIsReady = false;
   
   showResults:boolean=false; 
 
@@ -43,6 +45,12 @@ export class SearchComponent implements OnInit, OnChanges {
             break;
           }
 
+          case 'leagues':{
+            if (this.leagues.length){
+              this.leaguesDataIsReady=true;
+            }
+          }
+
         }
       }
     }
@@ -67,6 +75,26 @@ export class SearchComponent implements OnInit, OnChanges {
     }else{
       this.teams_coincidences = [];
       this.players_coincidences = [];
+    }
+  }
+
+  getLeague(leagueId:any):string{
+    if (this.leaguesDataIsReady){
+      let league = this.leagues.find((item:any)=> item['Identificador'] === leagueId);
+      if (league != undefined){
+        return league['Nombre De La Liga'];
+      }
+    }
+    return 'Sin información';
+    
+  }
+
+  getTeamName(teamId:string):string{
+    let team = this.teams.find((item:any)=> item['id'] === teamId);
+    if (team != undefined){
+      return team['Nombre del equipo'];
+    }else{
+      return 'Sin equipo';
     }
   }
 

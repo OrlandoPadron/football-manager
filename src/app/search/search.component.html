@@ -1,6 +1,66 @@
-<input type="text" [(ngModel)]="searchInput" (keyup)="onKey()" (focus)="showResultsContainer()" (focusout)="hideResultsContainer()">
+<div class="searchbar-container">
+    <input type="text"
+     placeholder="Busca equipos y jugadores..." [(ngModel)]="searchInput" (keyup)="onKey()" (focus)="showResultsContainer()" (focusout)="hideResultsContainer()">
+<!-- 
+     *ngIf="showResults" -->
+    <div class="results-container" >
+        <div class="results-content" *ngIf="(teams_coincidences.length > 0 || players_coincidences.length > 0);else noResultsMessage">
+            <div class="section" *ngIf="teams_coincidences.length > 0">
+                <div class="header">
+                    <p>Equipos</p> 
+                </div>
+                <div class="list">
+                    <div class="element" [routerLink]="['/teams', team['id']]" *ngFor="let team of teams_coincidences">
+                        <div class="image">
+                            <img src="{{team['Logo del Equipo']}}" alt="image">
+                        </div>
+                        <div class="text">
+                            <p class="primary">
+                                {{team['Nombre del equipo']}}
+                            </p>
+                            <p class="secondary">Liga: {{getLeague(team['Liga'])}}</p>
+                        </div>
+                        <i class="fas fa-arrow-up fa-rotate-90"></i>
 
-<div *ngIf="showResults">
+
+                    </div>
+                </div>
+            </div>
+            <div class="section" *ngIf="players_coincidences.length > 0">
+                <div class="header">
+                    <p>Jugadores</p> 
+                </div>
+                <div class="list">
+                    <div class="element" *ngFor="let player of players_coincidences">
+                        <div class="image">
+                            <img src="{{player['Avatar']}}" alt="image">
+                        </div>
+                        <div class="text">
+                            <p class="primary">
+                                {{player['Nombre del Jugador']}}
+                            </p>
+                            <p class="secondary">Equipo: {{getTeamName(player['teamId'])}}</p>
+                        </div>
+                        <i class="fas fa-arrow-up fa-rotate-90"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #noResultsMessage>
+            <div class="no-results-message">
+                <span>
+                    No se han encontrado resultados.
+                </span>
+            </div>
+
+        </ng-template>
+    </div>
+
+</div>
+
+
+<!-- <div *ngIf="showResults">
     <div class="container">
         <div class="teams" *ngIf="teams_coincidences.length > 0">
             <p>Teams</p>
@@ -21,5 +81,5 @@
         </div>
     </div>
 
-</div>
+</div> -->
 
