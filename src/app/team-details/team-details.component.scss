@@ -1,0 +1,193 @@
+$very-low-emphasis-black: rgba(0, 0, 0, 0.3);
+$low-emphasis-black: rgba(0, 0, 0, 0.6);
+$medium-emphasis-black: rgba(0, 0, 0, 0.8);
+$edit-button-color: #7a00ff;
+$delete-button-color: #ec0b43;
+$team-background-color: rgb(0, 192, 199);
+$player-background-color: #f25f5c;
+$shadow: 1px 10px 21px -11px rgba(0, 0, 0, 0.15);
+
+@mixin mobile {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@include mobile {
+  .page-container {
+    display: grid;
+    grid-template-rows: 4em auto 1fr;
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px 40px 0px 40px;
+    color: black;
+    background-color: white;
+
+    .header {
+      display: block;
+      padding: 20px 0;
+
+      .back-home {
+        display: flex;
+        align-items: center;
+        color: $medium-emphasis-black;
+
+        i {
+          margin-right: 0.4em;
+        }
+
+        label.sm-button-label {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .team-info {
+      display: flex;
+      height: 120px;
+      margin-top: 10px;
+      gap: 1.5rem;
+
+      img.team-image {
+        width: 100px;
+        height: 100px;
+        background-color: $team-background-color;
+        border-radius: 10px;
+        box-sizing: border-box;
+        border: 2px solid black;
+        box-shadow: $shadow;
+        -webkit-box-shadow: $shadow;
+        -moz-box-shadow: $shadow;
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        height: 85px;
+        margin-top: 5px;
+        .team-name {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          span.type-tag {
+            color: $medium-emphasis-black;
+            font-weight: normal;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+          }
+          span.name {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: -5px;
+            margin-bottom: 0.5rem;
+            height: 100%;
+          }
+        }
+
+        .manage-buttons {
+          display: flex;
+          height: 100%;
+          align-items: flex-end;
+          gap: 0.5rem;
+
+          i {
+            margin-right: 0.5rem;
+          }
+
+          button {
+            height: 30px;
+            font-size: 0.7rem;
+          }
+          button.edit {
+            background-color: $edit-button-color;
+            border-radius: 5px;
+            padding: 5px 12px;
+            border: none;
+            color: white;
+            font-family: Poppins, sans-serif;
+          }
+
+          button.delete {
+            background-color: $delete-button-color;
+            border-radius: 5px;
+            position: relative;
+            padding: 5px 20px;
+            border: none;
+            color: white;
+            font-family: Poppins, sans-serif;
+
+            i {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+
+    section.players-section {
+      margin-top: 10px;
+      .heading {
+        display: flex;
+        align-items: center;
+        color: black;
+        span {
+          margin-left: 4px;
+          color: $low-emphasis-black;
+          &::before {
+            content: "·";
+            margin-right: 8px;
+            margin-left: 5px;
+          }
+        }
+      }
+
+      .players-grid {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 200px;
+        max-height: calc(100vh - 300px);
+        gap: 15px;
+        overflow-y: scroll;
+        flex: 0 1 40px;
+        row-gap: 45px;
+        .element {
+          display: flex;
+          min-width: 90px;
+          max-width: 90px;
+          min-height: 90px;
+          max-height: 90px;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 10px;
+
+          img {
+            margin-top: 5px;
+            margin-bottom: 8px;
+            min-width: 60px;
+            max-width: 60px;
+            min-height: 60px;
+            max-height: 60px;
+            border-radius: 50%;
+            border: 2px solid black;
+            background-color: $player-background-color;
+          }
+
+          span {
+            font-size: 0.7rem;
+            color: black;
+            text-align: center;
+            word-spacing: 100vw;
+          }
+        }
+      }
+    }
+  }
+}

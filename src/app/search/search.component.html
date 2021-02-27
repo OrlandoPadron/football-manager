@@ -10,7 +10,7 @@
                 </div>
                 <div class="list">
                     <div class="element" [routerLink]="['/teams', team['id']]" *ngFor="let team of teams_coincidences">
-                        <div class="image">
+                        <div class="image team-image">
                             <img src="{{team['Logo del Equipo']}}" alt="image">
                         </div>
                         <div class="text">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="list">
                     <div class="element" [routerLink]="['/players', player['id']]" *ngFor="let player of players_coincidences">
-                        <div class="image">
+                        <div class="image player-image">
                             <img src="{{player['Avatar']}}" alt="image">
                         </div>
                         <div class="text">

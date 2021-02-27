@@ -31,7 +31,6 @@ export class TeamDetailsComponent implements OnInit {
       //Getting team players 
       this._http.getTeamPlayers(this.teamId).subscribe(data=>{
         this.players = data; 
-        console.log(this.players);
         this.content_ready = true; 
       });
 

@@ -1,4 +1,46 @@
-<ng-container *ngIf="content_ready">
+
+<div class="page-container" *ngIf="content_ready">
+
+    <header class="header">
+        <div class="back-home" [routerLink]="['/']">
+            <i class="fas fa-long-arrow-alt-left"></i>
+            <label class="sm-button-label">Volver</label>
+        </div>
+    </header>
+    <div class="team-info">
+        <img src="{{team[0]['Logo del Equipo']}}" alt="team-image" class="team-image">
+        <div class="details">
+            <div class="team-name">
+                <span class="type-tag">Equipo</span>
+                <span class="name">{{team[0]['Nombre del equipo']}}</span>
+            </div>
+            <div class="manage-buttons">
+                <button class="edit"><i class="fas fa-edit"></i>Editar equipo</button>
+                <button class="delete"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+    </div>
+    <section class="players-section">
+        <div class="heading">
+            <p>Jugadores</p>
+            <span>{{players.length}} jugadores</span>
+        </div>
+        <div class="players-grid" *ngIf="players">
+            <div class="element" [routerLink]="['/players', player['id']]" *ngFor="let player of players">
+                <img src="{{player['Avatar']}}" alt="player-avatar">
+                <span>{{player['Nombre del Jugador']}}</span>
+            </div>
+
+        </div>
+
+    </section>
+</div>
+
+
+
+
+
+<!-- <ng-container *ngIf="content_ready">
     <p>{{team[0]['Nombre del equipo']}}</p>
     <p>Jugadores</p>
 
@@ -8,4 +50,4 @@
         </li>
     </ul>
 
-</ng-container>
+</ng-container> -->
