@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TeamDetailsComponent } from './team-details/team-details.component';
 import { PlayerDetailsComponent } from './player-details/player-details.component';
 import { PlayerDetailsModalComponent } from './player-details-modal/player-details-modal.component';
+import { ClickOutsideDirectiveDirective } from './directives/click-outside-directive.directive';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,16 @@ import { PlayerDetailsModalComponent } from './player-details-modal/player-detai
     HomeComponent,
     TeamDetailsComponent,
     PlayerDetailsComponent,
-    PlayerDetailsModalComponent
+    PlayerDetailsModalComponent,
+    ClickOutsideDirectiveDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

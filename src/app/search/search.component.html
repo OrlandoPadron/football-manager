@@ -1,11 +1,10 @@
-<div class="searchbar-container">
+<div class="searchbar-container" (clickOutside)="hideResultsContainer()" (keyup.escape)="hideResultsContainer()" >
     <input type="text"
-     placeholder="Busca equipos y jugadores..." [(ngModel)]="searchInput" (keyup)="onKey()" (focus)="showResultsContainer()" (focusout)="hideResultsContainer()">
-<!-- 
-     *ngIf="showResults" -->
-    <div class="results-container" >
+     placeholder="Busca equipos y jugadores..." [(ngModel)]="searchInput" (keyup)="onKey()" (click)="showResultsContainer()">
+
+    <div class="results-container"  *ngIf="showResults">
         <div class="results-content" *ngIf="(teams_coincidences.length > 0 || players_coincidences.length > 0);else noResultsMessage">
-            <div class="section" *ngIf="teams_coincidences.length > 0">
+            <section class="section" *ngIf="teams_coincidences.length > 0">
                 <div class="header">
                     <p>Equipos</p> 
                 </div>
@@ -25,13 +24,13 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="section" *ngIf="players_coincidences.length > 0">
+            </section>
+            <section class="section" *ngIf="players_coincidences.length > 0">
                 <div class="header">
                     <p>Jugadores</p> 
                 </div>
                 <div class="list">
-                    <div class="element" *ngFor="let player of players_coincidences">
+                    <div class="element" [routerLink]="['/players', player['id']]" *ngFor="let player of players_coincidences">
                         <div class="image">
                             <img src="{{player['Avatar']}}" alt="image">
                         </div>
@@ -44,7 +43,7 @@
                         <i class="fas fa-arrow-up fa-rotate-90"></i>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
 
         <ng-template #noResultsMessage>

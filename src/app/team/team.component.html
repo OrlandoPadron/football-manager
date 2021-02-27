@@ -1,10 +1,19 @@
-<p>team works!</p>
-<p>Hay un total de {{teams.length}} equipos.</p>
-
-<ul *ngIf="teams">
-    <ng-container *ngFor="let team of teams; let i = index">
-        <li *ngIf="i <= 10">
-            <a [routerLink]="['/teams', team['id']]">{{team['Nombre del equipo']}}</a>
-        </li>
-    </ng-container>
-</ul>
+<div class="teams-container">
+    <section class="section" *ngIf="leagueClicked;else leagueNotSelectedMessage">
+        <div class="header">
+            <p>Liga {{leagueClicked['Nombre De La Liga']}}</p>
+            <span>{{leagueTeams.length}} equipos</span>
+        </div>
+        <div class="teams-grid">
+            <div [routerLink]="['/teams', team['id']]" class="element" *ngFor="let team of leagueTeams">
+                <img src="{{team['Logo del Equipo']}}" alt="logo_{{team['Nombre del equipo']}}">
+                <span>{{team['Nombre del equipo']}}</span>
+            </div>
+        </div>
+    </section>
+    <ng-template #leagueNotSelectedMessage>
+        <div class="header">
+            <p class="info-message">No hay liga seleccionada.</p>
+        </div>
+    </ng-template>
+</div>

@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   teams:any = [];
   players:any = []; 
 
+  public leagueClicked:any; 
+
   constructor(private _http:HttpService) { }
 
   ngOnInit(): void {
@@ -30,6 +32,10 @@ export class HomeComponent implements OnInit {
     this._http.getPlayers().subscribe(data=>{
       this.players = data; 
     });
+  }
+
+  childLeagueClicked(league:any){
+    this.leagueClicked = league;
   }
 
 }
