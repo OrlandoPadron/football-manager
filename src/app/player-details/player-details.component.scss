@@ -1,0 +1,174 @@
+$very-low-emphasis-black: rgba(0, 0, 0, 0.3);
+$low-emphasis-black: rgba(0, 0, 0, 0.6);
+$medium-emphasis-black: rgba(0, 0, 0, 0.8);
+$edit-button-color: #7a00ff;
+$delete-button-color: #ec0b43;
+$team-background-color: rgb(0, 192, 199);
+$player-background-color: #f25f5c;
+$shadow: 1px 10px 21px -11px rgba(0, 0, 0, 0.15);
+
+@mixin mobile {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@include mobile {
+  .page-container {
+    display: grid;
+    grid-template-rows: 4em auto 1fr;
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px 40px 0px 40px;
+    color: black;
+    background-color: white;
+
+    .header {
+      display: block;
+      padding: 20px 0;
+
+      .back-home {
+        display: flex;
+        align-items: center;
+        color: $medium-emphasis-black;
+
+        i {
+          margin-right: 0.4em;
+        }
+
+        label.sm-button-label {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .player-info {
+      display: flex;
+      height: 120px;
+      margin-top: 10px;
+      gap: 1.5rem;
+
+      img.player-image {
+        width: 100px;
+        height: 100px;
+        background-color: $player-background-color;
+        border-radius: 10px;
+        box-sizing: border-box;
+        border: 2px solid black;
+        box-shadow: $shadow;
+        -webkit-box-shadow: $shadow;
+        -moz-box-shadow: $shadow;
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        height: 85px;
+        margin-top: 5px;
+        .player-name {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          span.type-tag {
+            color: $medium-emphasis-black;
+            font-weight: normal;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+          }
+          span.name {
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: -5px;
+            margin-bottom: 0.5rem;
+            height: 100%;
+          }
+        }
+
+        .manage-buttons {
+          display: flex;
+          height: 100%;
+          align-items: flex-end;
+          gap: 0.5rem;
+
+          i {
+            margin-right: 0.5rem;
+          }
+
+          button {
+            height: 30px;
+            font-size: 0.7rem;
+          }
+          button.edit {
+            background-color: $edit-button-color;
+            border-radius: 5px;
+            padding: 5px 12px;
+            border: none;
+            color: white;
+            font-family: Poppins, sans-serif;
+          }
+
+          button.delete {
+            background-color: $delete-button-color;
+            border-radius: 5px;
+            position: relative;
+            padding: 5px 20px;
+            border: none;
+            color: white;
+            font-family: Poppins, sans-serif;
+
+            i {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+
+    section.player-details {
+      margin-top: 20px;
+      .section-title {
+        font-weight: bold;
+        // text-transform: uppercase;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $low-emphasis-black;
+        margin-bottom: 0;
+        font-size: 1rem;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        .element {
+          display: flex;
+          height: auto;
+          flex-direction: column;
+          justify-content: center;
+          margin-bottom: 20px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+          .title {
+            font-weight: bold;
+            margin: 0;
+            font-size: 0.9rem;
+          }
+
+          .data {
+            color: $medium-emphasis-black;
+            margin: 0;
+            margin-top: 3px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}

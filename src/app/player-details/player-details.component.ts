@@ -12,6 +12,11 @@ export class PlayerDetailsComponent implements OnInit {
   playerId: string = "";
   player: any = {};
   player_team: any = {}; 
+  placeholderInfo: Array<any> = [{
+    "birthday" : "",
+    "country": "",
+    "position": ""
+  }]; 
   content_ready: boolean = false; 
 
 
@@ -33,6 +38,23 @@ export class PlayerDetailsComponent implements OnInit {
 
     })
 
+    //Setting random info for placeholders. 
+    this.infoPlaceHolder(); 
+
+  }
+
+  private infoPlaceHolder(){
+    let birthday:Array<any>=["1 de abril de 1997", "11 de agosto de 1998",
+    "25 de mayo de 2000", "29 de agosto de 1992"];
+
+    let country:Array<any>=["Argentina", "España", "Alemania", "Francia"];
+
+    let position:Array<any>=["Portero", "Defensa", "Centrocampista", "Delantero"];
+
+    this.placeholderInfo[0]["birthday"]=birthday[Math.floor(Math.random() * birthday.length)];
+    this.placeholderInfo[0]["country"]=country[Math.floor(Math.random() * country.length)];
+    this.placeholderInfo[0]["position"]=position[Math.floor(Math.random() * position.length)];
+  
   }
 
 

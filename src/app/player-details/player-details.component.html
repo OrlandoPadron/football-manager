@@ -1,4 +1,54 @@
-<p>player-details works!</p>
+<div class="page-container" *ngIf="content_ready">
+
+    <header class="header">
+        <div class="back-home" [routerLink]="['/teams', player_team[0]['id']]">
+            <i class="fas fa-long-arrow-alt-left"></i>
+            <label class="sm-button-label">Volver al equipo</label>
+        </div>
+    </header>
+    <div class="player-info">
+        <img src="{{player[0]['Avatar']}}" alt="player-image" class="player-image">
+        <div class="details">
+            <div class="player-name">
+                <span class="type-tag">Jugador</span>
+                <span class="name">{{player[0]['Nombre del Jugador']}}</span>
+            </div>
+            <div class="manage-buttons">
+                <button class="edit"><i class="fas fa-edit"></i>Editar jugador</button>
+                <button class="delete"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+    </div>
+    <section class="player-details">
+        <p class="section-title">Detalles del jugador</p>
+        <div class="content">
+            <div class="element">
+                <p class="title">Fecha nacimiento</p>
+                <span class="data">{{placeholderInfo[0]["birthday"]}}</span>
+            </div>
+            <div class="element">
+                <p class="title">País</p>
+                <span class="data">{{placeholderInfo[0]["country"]}}</span>
+            </div>
+            <div class="element">
+                <p class="title">Equipo</p>
+                <span class="data">{{player_team[0]['Nombre del equipo']}}</span>
+            </div>
+            <div class="element">
+                <p class="title">Posición</p>
+                <span class="data">{{placeholderInfo[0]["position"]}}</span>
+            </div>
+
+        </div>
+
+    </section>
+</div>
+
+
+
+
+
+<!-- <p>player-details works!</p>
 <ng-container *ngIf="content_ready">
     {{player[0]['Nombre del Jugador']}}
     <p>Nombre del equipo {{player_team[0]['Nombre del equipo']}}</p>
@@ -6,5 +56,5 @@
 
     <app-player-details-modal [player]="player" [team]="player_team"></app-player-details-modal>
 
-</ng-container>
+</ng-container> -->
 
