@@ -13,7 +13,12 @@ export class HttpService {
   getLeagues(){
     return this.http.get(GlobalConstants.apiURL + 'leagues');
   }
+  
+  getLeagueGivenId(id_league:string){
+    let params = new HttpParams().set("Identificador", id_league);
+    return this.http.get(GlobalConstants.apiURL+'leagues', {params: params});
 
+  }
   getTeams(){
     return this.http.get(GlobalConstants.apiURL + 'teams');
   }
@@ -53,4 +58,14 @@ export class HttpService {
     this.http.put(GlobalConstants.apiURL+'players/'+_data.value.id, body).subscribe(data => console.log(data));;
   }
 
+  // Team's put method
+  editTeam(_data:any){
+    const body = { 
+      "Nombre del equipo": _data.value.name,
+      "id": _data.value.id,
+      "Logo del Equipo": _data.value.avatar,
+      "Liga": _data.value.leagueId
+    };
+    return this.http.put(GlobalConstants.apiURL+'teams/'+_data.value.id, body);
+  }
 }

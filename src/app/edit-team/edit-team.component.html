@@ -1,29 +1,32 @@
-<div class="container" [ngStyle]="{'display':(visible) ? '' : 'none'}">
-    <div class="modal-window">
+<div class="container" [ngStyle]="{'display':(visible) ? '' : 'none'}" *ngIf="team[0]">
+    <div class="modal-window" (clickOutside)="toggleModal()">
         <div class="header">
             <span>Editar equipo</span>
         </div>
         <div class="content">
             <div class="upper-container">
                 <div class="upload-image">
-                    <img src="/assets/testing/image.png" alt="image-selected">
-                    <button class="add-image"><i class="fas fa-cloud-upload-alt"></i>Subir imagen</button>
+                    <img src="{{team[0]['Logo del Equipo']}}" alt="image-selected">
+                    <!-- <button class="add-image"><i class="fas fa-cloud-upload-alt"></i>Subir imagen</button> -->
                 </div>
-                <form #form="ngForm" class="form">
+                <form [formGroup]="editForm" id="editForm" class="form" (ngSubmit)="onSubmit(editForm)">
                     <div class="pair">
                         <label for="">Nombre del equipo</label>
-                        <input type="text">
+                        <input type="text" formControlName="name">
         
                     </div>
                     <div class="pair">
                         <label for="">Liga</label>
-                        <input type="text">
+                        <select type="text" formControlName="leagueId" *ngIf="leagues">
+                            <option *ngFor="let league of leagues" [ngValue]="league['Identificador']" (change)="changeLeague(league)">{{league['Nombre De La Liga']}}</option>
+                        </select>
+
         
                     </div>
                 </form>
             </div>
             <div class="btn-containers">
-                <button class="save" type="submit">
+                <button class="save" type="submit" [disabled]="!editForm.valid" form="editForm">
                     <i class="fas fa-check-circle"></i> Guardar
                 </button>
                 <button class="cancel" (click)="toggleModal()">
