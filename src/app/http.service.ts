@@ -45,20 +45,24 @@ export class HttpService {
 
   //Put method
   editPlayer(_data:any){
-    console.log(_data.value.id);
     const body = { 
       "Nombre del Jugador": _data.value.name,
-      "id": "ca85cfed-69d8-4e03-9259-960195bde933",
-      "Avatar": "https://robohash.org/etconsequunturreprehenderit.png?size=250x250&set=set1",
-      "teamId": "8154f4cb-246b-4bf9-bc64-51f8661b6781"
+      "id": _data.value.id,
+      "Avatar": _data.value.avatar,
+      "teamId": _data.value.teamId
     };
+    console.log("llegué");
+    console.log(body);
 
-    let url = GlobalConstants.apiURL + 'players/' + _data.value.id; 
-    console.log(url);
-    this.http.put(GlobalConstants.apiURL+'players/'+_data.value.id, body).subscribe(data => console.log(data));
+    return this.http.put(GlobalConstants.apiURL+'players/'+_data.value.id, body);
   }
 
-  // Team's put method
+  //Player delete method
+  deletePlayer(playerId:any){    
+    return this.http.delete(GlobalConstants.apiURL+'players/'+playerId);
+  }
+
+  // Team put method
   editTeam(_data:any){
     const body = { 
       "Nombre del equipo": _data.value.name,
@@ -69,7 +73,7 @@ export class HttpService {
     return this.http.put(GlobalConstants.apiURL+'teams/'+_data.value.id, body);
   }
 
-  //Team's delete method
+  //Team delete method
   deleteTeam(teamId:any){    
     return this.http.delete(GlobalConstants.apiURL+'teams/'+teamId);
   }

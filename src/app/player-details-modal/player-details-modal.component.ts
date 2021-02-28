@@ -23,7 +23,8 @@ export class PlayerDetailsModalComponent implements OnInit, OnChanges {
     this.editForm = this.formBuilder.group({
       name: ['', Validators.required],
       teamId: ['', Validators.required],
-      id: ['']
+      id: [''],
+      avatar: ['']
     });
   }
 
@@ -51,9 +52,11 @@ export class PlayerDetailsModalComponent implements OnInit, OnChanges {
     }
   }
 
-  onSubmit(_datos:any){
-    console.log(_datos.value);
-    this._http.editPlayer(_datos);
+  onSubmit(_data:any){
+    console.log(_data.value);
+    this._http.editPlayer(_data).subscribe(()=>{
+      window.location.reload();
+    });
     
   }
 
@@ -62,7 +65,8 @@ export class PlayerDetailsModalComponent implements OnInit, OnChanges {
   this.editForm = this.formBuilder.group({
     name: [this.player[0]['Nombre del Jugador'], Validators.required],
     teamId: ['' , Validators.required],
-    id: [this.player[0]['id']]
+    id: [this.player[0]['id']],
+    avatar: [this.player[0]['Avatar']]
   });
 
   //Default form's select value is the players's current team. 

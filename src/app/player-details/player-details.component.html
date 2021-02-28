@@ -14,8 +14,8 @@
                 <span class="name">{{player[0]['Nombre del Jugador']}}</span>
             </div>
             <div class="manage-buttons">
-                <button class="edit"><i class="fas fa-edit"></i>Editar jugador</button>
-                <button class="delete"><i class="fas fa-trash-alt"></i></button>
+                <button class="edit" (click)="openEditModal()"><i class="fas fa-edit"></i>Editar jugador</button>
+                <button class="delete" (click)="deletePlayer()"><i class="fas fa-trash-alt"></i></button>
             </div>
         </div>
     </div>

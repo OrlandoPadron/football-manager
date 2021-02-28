@@ -1,6 +1,7 @@
+import { PlayerDetailsModalComponent } from './../player-details-modal/player-details-modal.component';
 import { HttpService } from './../http.service';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-player-details',
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlayerDetailsComponent implements OnInit {
 
+  @ViewChild(PlayerDetailsModalComponent) editModal!:PlayerDetailsModalComponent;
   playerId: string = "";
   player: any = {};
   player_team: any = {}; 
@@ -20,7 +22,7 @@ export class PlayerDetailsComponent implements OnInit {
   content_ready: boolean = false; 
 
 
-  constructor(private route:ActivatedRoute, private _http:HttpService) { }
+  constructor(private route:ActivatedRoute, private _http:HttpService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -55,6 +57,21 @@ export class PlayerDetailsComponent implements OnInit {
     this.placeholderInfo[0]["country"]=country[Math.floor(Math.random() * country.length)];
     this.placeholderInfo[0]["position"]=position[Math.floor(Math.random() * position.length)];
   
+  }
+
+  openEditModal(){
+    this.editModal.visible=true;
+  }
+
+  deletePlayer(){
+    let confirmation:any = confirm("¿Estás seguro de que desea eliminar al jugador " + this.player[0]['Nombre del Jugador'] + "?");
+    if (confirmation == true){
+      this._http.deletePlayer(this.player[0]['id']).subscribe(
+        ()=>{
+          alert("Jugador " + this.player[0]['Nombre del Jugador'] + " eliminado. \nVolviendo al menú principal.");
+          this.router.navigate(['/']);
+      });
+    }
   }
 
 
