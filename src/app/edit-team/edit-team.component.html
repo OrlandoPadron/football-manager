@@ -1,0 +1,37 @@
+<div class="container" [ngStyle]="{'display':(visible) ? '' : 'none'}">
+    <div class="modal-window">
+        <div class="header">
+            <span>Editar equipo</span>
+        </div>
+        <div class="content">
+            <div class="upper-container">
+                <div class="upload-image">
+                    <img src="/assets/testing/image.png" alt="image-selected">
+                    <button class="add-image"><i class="fas fa-cloud-upload-alt"></i>Subir imagen</button>
+                </div>
+                <form #form="ngForm" class="form">
+                    <div class="pair">
+                        <label for="">Nombre del equipo</label>
+                        <input type="text">
+        
+                    </div>
+                    <div class="pair">
+                        <label for="">Liga</label>
+                        <input type="text">
+        
+                    </div>
+                </form>
+            </div>
+            <div class="btn-containers">
+                <button class="save" type="submit">
+                    <i class="fas fa-check-circle"></i> Guardar
+                </button>
+                <button class="cancel" (click)="toggleModal()">
+                    <i class="fas fa-times-circle"></i>Cancelar
+                </button>
+            </div>
+    
+        </div>
+
+    </div>
+</div>

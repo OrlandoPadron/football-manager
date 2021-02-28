@@ -1,0 +1,98 @@
+$very-low-emphasis-black: rgba(0, 0, 0, 0.3);
+$low-emphasis-black: rgba(0, 0, 0, 0.6);
+$low-emphasis-white: rgba(255, 255, 255, 0.6);
+$medium-emphasis-black: rgba(0, 0, 0, 0.8);
+$btn-color: #ec0b43;
+
+@mixin mobile {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@include mobile {
+  .container {
+    position: absolute;
+    bottom: 0;
+    width: 250px;
+    height: 300px;
+    right: 0;
+    z-index: 200;
+
+    .btn {
+      width: 75px;
+      height: 75px;
+      background-color: $btn-color;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      box-shadow: -4px 6px 86px rgba(0, 0, 0, 0.4);
+      -webkit-box-shadow: -4px 6px 86px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: -4px 6px 86px rgba(0, 0, 0, 0.4);
+
+      .plus-symbol {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 3.5rem;
+        font-weight: normal;
+      }
+    }
+
+    .dropdown {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 150px;
+      width: 160px;
+      text-align: center;
+      border-radius: 10px;
+      background-color: $btn-color;
+      color: white;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-bottom: 115px;
+      margin-right: 25px;
+      font-size: 1rem;
+      box-shadow: -4px 6px 86px rgba(0, 0, 0, 0.4);
+      -webkit-box-shadow: -4px 6px 86px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: -4px 6px 86px rgba(0, 0, 0, 0.4);
+
+      ul.options {
+        padding: 0;
+        width: 100%;
+      }
+
+      li.option {
+        list-style-type: none;
+        margin-top: 5px;
+        padding: 15px 0;
+      }
+      li:not(:last-of-type) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  .active {
+    .btn {
+      background-color: white;
+
+      .x-symbol {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(0, 0, 0);
+        font-size: 3.5rem;
+        font-weight: normal;
+      }
+    }
+  }
+}

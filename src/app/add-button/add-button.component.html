@@ -1,0 +1,17 @@
+<div class="container" [ngClass]="{'active': active}" #container>
+    <div class="dropdown" [ngStyle]="{'display': (!active) ? 'none' : ''}" >
+        <ul class="options">
+            <li class="option">
+                <span>Añadir equipo</span>
+            </li>
+            <li class="option">
+                <span>Añadir jugador</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="btn" (click)="toggleDropdown()">
+        <span class="plus-symbol" [ngStyle]="{'display': (active) ? 'none' : ''}">+</span>
+        <span class="x-symbol" [ngStyle]="{'display': (!active) ? 'none' : ''}">x</span>
+    </div>
+</div>

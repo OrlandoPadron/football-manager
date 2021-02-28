@@ -15,6 +15,8 @@ import { TeamDetailsComponent } from './team-details/team-details.component';
 import { PlayerDetailsComponent } from './player-details/player-details.component';
 import { PlayerDetailsModalComponent } from './player-details-modal/player-details-modal.component';
 import { ClickOutsideDirectiveDirective } from './directives/click-outside-directive.directive';
+import { AddButtonComponent } from './add-button/add-button.component';
+import { EditTeamComponent } from './edit-team/edit-team.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ClickOutsideDirectiveDirective } from './directives/click-outside-direc
     TeamDetailsComponent,
     PlayerDetailsComponent,
     PlayerDetailsModalComponent,
-    ClickOutsideDirectiveDirective
+    ClickOutsideDirectiveDirective,
+    AddButtonComponent,
+    EditTeamComponent
   ],
   imports: [
     BrowserModule,

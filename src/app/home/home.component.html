@@ -7,21 +7,8 @@
     <app-league (eventChangeActiveLeague)="childLeagueClicked($event)" [leagues]="leagues"></app-league>
 
     <app-team [teams]="teams" [leagueClicked]="leagueClicked"></app-team>
+
+    <app-add-button></app-add-button>
     
 
 </div>
-
-
-
-
-<!-- <h2>Búsqueda</h2>
-<app-search [teams]="teams" [players]="players"></app-search>
-
-<h2>Ligas que hay</h2>
-<app-league [leagues]="leagues"></app-league>
-
-<h2>Equipos que hay</h2>
-<app-team [teams]="teams"></app-team>
-
-<h2>Jugadores que hay</h2>
-<app-player [players]="players"></app-player> -->
