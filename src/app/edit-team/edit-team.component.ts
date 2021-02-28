@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges} from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from './../http.service';
 
@@ -75,7 +75,6 @@ export class EditTeamComponent implements OnInit, OnChanges {
 
   onSubmit(_data:any){
     console.log(_data.value);
-    this._http.editTeam(_data);
     this._http.editTeam(_data).subscribe(
       data => {
        console.log(data);

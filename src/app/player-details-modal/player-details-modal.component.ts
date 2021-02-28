@@ -1,5 +1,5 @@
 import { HttpService } from './../http.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,36 +7,75 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './player-details-modal.component.html',
   styleUrls: ['./player-details-modal.component.scss']
 })
-export class PlayerDetailsModalComponent implements OnInit {
+export class PlayerDetailsModalComponent implements OnInit, OnChanges {
 
   @Input() player:any;
   @Input() team:any;
+  
+  teams:any =[];
+  visible:boolean = false; 
+
 
   
-  form:FormGroup;
+  editForm:FormGroup;
 
   constructor(private formBuilder:FormBuilder, private _http:HttpService) { 
-    this.form = formBuilder.group({}); 
+    this.editForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      teamId: ['', Validators.required],
+      id: ['']
+    });
   }
 
 
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-    console.log(this.player);
-    this.form = this.formBuilder.group({
-      name: [this.player[0]['Nombre del Jugador'], Validators.required],
-      team: [this.team[0]['Nombre del equipo'], Validators.required],
-      id: [this.player[0]['id']],
-      avatar: [""]
-    });
+  ngOnChanges(changes: SimpleChanges){
+    for (const propName in changes){
+      if (changes.hasOwnProperty(propName)){
+        switch(propName){          
+          case 'player':{
+            if (this.player.length){
+              //Getting all teams 
+              this._http.getTeams().subscribe(data=>{
+                this.teams = data; 
+                this.setForm();
+              });
 
+            }
+            break;
+          }
+        }
+      }
+    }
   }
 
   onSubmit(_datos:any){
     console.log(_datos.value);
     this._http.editPlayer(_datos);
     
+  }
+
+ //Setting form structure. 
+ setForm(){
+  this.editForm = this.formBuilder.group({
+    name: [this.player[0]['Nombre del Jugador'], Validators.required],
+    teamId: ['' , Validators.required],
+    id: [this.player[0]['id']]
+  });
+
+  //Default form's select value is the players's current team. 
+  this.editForm.controls['teamId'].setValue(this.team[0]['id'], {onlySelf:true})
+  }
+
+  //OnChange select event 
+  changeTeam(team:any){
+    this.editForm.controls['teamId'].setValue(team[0]['id']);
+  }
+
+  toggleModal(){
+    this.visible = !this.visible;
   }
 
 }

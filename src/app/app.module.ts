@@ -31,7 +31,8 @@ import { EditTeamComponent } from './edit-team/edit-team.component';
     PlayerDetailsModalComponent,
     ClickOutsideDirectiveDirective,
     AddButtonComponent,
-    EditTeamComponent
+    EditTeamComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -42,6 +43,6 @@ import { EditTeamComponent } from './edit-team/edit-team.component';
     RouterModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

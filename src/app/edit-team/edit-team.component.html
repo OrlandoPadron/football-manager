@@ -1,5 +1,5 @@
-<div class="container" [ngStyle]="{'display':(visible) ? '' : 'none'}" *ngIf="team[0]">
-    <div class="modal-window" (clickOutside)="toggleModal()">
+<div class="container" [hidden]="!visible" *ngIf="team[0]">
+    <div class="modal-window">
         <div class="header">
             <span>Editar equipo</span>
         </div>

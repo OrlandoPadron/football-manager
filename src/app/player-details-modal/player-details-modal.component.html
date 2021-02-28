@@ -1,5 +1,44 @@
-<p>player-details-modal works!</p>
-<form [formGroup]="form" (ngSubmit)="onSubmit(form)" novalidate>
+<div class="container" [hidden]="!visible" *ngIf="player[0]">
+    <div class="modal-window">
+        <div class="header">
+            <span>Editar jugador</span>
+        </div>
+        <div class="content">
+            <div class="upper-container">
+                <div class="upload-image">
+                    <img src="{{player[0]['Avatar']}}" alt="image-selected">
+                    <!-- <button class="add-image"><i class="fas fa-cloud-upload-alt"></i>Subir imagen</button> -->
+                </div>
+                <form [formGroup]="editForm" id="editForm" class="form" (ngSubmit)="onSubmit(editForm)">
+                    <div class="pair">
+                        <label for="">Nombre del jugador</label>
+                        <input type="text" formControlName="name">
+        
+                    </div>
+                    <div class="pair">
+                        <label for="">Equipo</label>
+                        <select type="text" formControlName="teamId" *ngIf="teams">
+                            <option *ngFor="let team of teams" [ngValue]="team['id']" (change)="changeTeam(team)">{{team['Nombre del equipo']}}</option>
+                        </select>
+
+        
+                    </div>
+                </form>
+            </div>
+            <div class="btn-containers">
+                <button class="save" type="submit" [disabled]="!editForm.valid" form="editForm">
+                    <i class="fas fa-check-circle"></i> Guardar
+                </button>
+                <button class="cancel" (click)="toggleModal()">
+                    <i class="fas fa-times-circle"></i>Cancelar
+                </button>
+            </div>
+    
+        </div>
+
+    </div>
+</div>
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit(form)" novalidate>
     <label>Nombre jugador</label>
     <input type="text" formControlName="name">
     
@@ -13,4 +52,4 @@
         Save
     </button>
 
-</form>
+</form> -->

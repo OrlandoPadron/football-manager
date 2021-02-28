@@ -55,7 +55,7 @@ export class HttpService {
 
     let url = GlobalConstants.apiURL + 'players/' + _data.value.id; 
     console.log(url);
-    this.http.put(GlobalConstants.apiURL+'players/'+_data.value.id, body).subscribe(data => console.log(data));;
+    this.http.put(GlobalConstants.apiURL+'players/'+_data.value.id, body).subscribe(data => console.log(data));
   }
 
   // Team's put method
@@ -67,5 +67,10 @@ export class HttpService {
       "Liga": _data.value.leagueId
     };
     return this.http.put(GlobalConstants.apiURL+'teams/'+_data.value.id, body);
+  }
+
+  //Team's delete method
+  deleteTeam(teamId:any){    
+    return this.http.delete(GlobalConstants.apiURL+'teams/'+teamId);
   }
 }

@@ -1,9 +1,9 @@
 <div class="page-container" *ngIf="content_ready">
 
     <header class="header">
-        <div class="back-home" [routerLink]="['/teams', player_team[0]['id']]">
+        <div class="back-home">
             <i class="fas fa-long-arrow-alt-left"></i>
-            <label class="sm-button-label">Volver al equipo</label>
+            <label class="sm-button-label" [routerLink]="['/teams', player_team[0]['id']]">Volver al equipo</label>
         </div>
     </header>
     <div class="player-info">
@@ -44,6 +44,7 @@
     </section>
 </div>
 
+<app-player-details-modal [player]="player" [team]="player_team"></app-player-details-modal>
 
 
 
@@ -54,7 +55,6 @@
     <p>Nombre del equipo {{player_team[0]['Nombre del equipo']}}</p>
 
 
-    <app-player-details-modal [player]="player" [team]="player_team"></app-player-details-modal>
 
 </ng-container> -->
 

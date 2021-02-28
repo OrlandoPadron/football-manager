@@ -1,6 +1,7 @@
+import { EditTeamComponent } from './../edit-team/edit-team.component';
 import { HttpService } from './../http.service';
-import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-details',
@@ -14,7 +15,10 @@ export class TeamDetailsComponent implements OnInit {
   players: any = {}; 
   content_ready: boolean = false; 
 
-  constructor(private route:ActivatedRoute, private _http:HttpService) { }
+  @ViewChild(EditTeamComponent) editModal!:EditTeamComponent;
+
+
+  constructor(private route:ActivatedRoute, private _http:HttpService, private router: Router) { }
 
 
 
@@ -36,6 +40,20 @@ export class TeamDetailsComponent implements OnInit {
     });
   }
 
+  openModal(){
+    this.editModal.visible=true;
+  }
+
+  deleteTeam(teamId:any){
+    let confirmation:any = confirm("¿Estás seguro de que desea eliminar el equipo " + this.team[0]['Nombre del equipo'] + "? \nLos jugadores asociados también serán eliminados.");
+    if (confirmation == true){
+      this._http.deleteTeam(teamId).subscribe(
+        data=>{
+          alert("Equipo " + this.team[0]['Nombre del equipo'] + " eliminado. \nVolviendo al menú principal.");
+          this.router.navigate(['/']);
+      });
+    }
+  }
 
 
 }

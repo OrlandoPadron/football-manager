@@ -2,9 +2,9 @@
 <div class="page-container" *ngIf="content_ready">
 
     <header class="header">
-        <div class="back-home" [routerLink]="['/']">
+        <div class="back-home">
             <i class="fas fa-long-arrow-alt-left"></i>
-            <label class="sm-button-label">Volver</label>
+            <label class="sm-button-label" [routerLink]="['/']">Volver</label>
         </div>
     </header>
     <div class="team-info">
@@ -15,8 +15,8 @@
                 <span class="name">{{team[0]['Nombre del equipo']}}</span>
             </div>
             <div class="manage-buttons">
-                <button class="edit"><i class="fas fa-edit"></i>Editar equipo</button>
-                <button class="delete"><i class="fas fa-trash-alt"></i></button>
+                <button class="edit" (click)="openModal()"><i class="fas fa-edit"></i>Editar equipo</button>
+                <button class="delete" (click)="deleteTeam(team[0]['id'])"><i class="fas fa-trash-alt"></i></button>
             </div>
         </div>
     </div>
