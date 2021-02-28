@@ -14,10 +14,11 @@ $btn-color: #ec0b43;
   .container {
     position: absolute;
     bottom: 0;
-    width: 250px;
-    height: 300px;
     right: 0;
     z-index: 200;
+    .dropdown {
+      display: none;
+    }
 
     .btn {
       width: 75px;
@@ -43,7 +44,13 @@ $btn-color: #ec0b43;
         font-weight: normal;
       }
     }
+  }
 
+  .active {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 200;
     .dropdown {
       display: flex;
       align-items: center;
@@ -78,9 +85,7 @@ $btn-color: #ec0b43;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       }
     }
-  }
 
-  .active {
     .btn {
       background-color: white;
 

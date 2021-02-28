@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-add-button',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddButtonComponent implements OnInit {
 
-
+  @Output() newAddEventClicked = new EventEmitter<any>();
   active:boolean = false;
 
   constructor() { }
@@ -19,5 +19,21 @@ export class AddButtonComponent implements OnInit {
 
   toggleDropdown(){
     this.active = !this.active; 
+  }
+
+  openNewModal(type:string){
+    switch(type){
+      case 'newTeam':{
+        this.active=false;
+        this.newAddEventClicked.emit(type);
+        break;
+      }
+      case 'newPlayer':{
+        this.active=false;
+        this.newAddEventClicked.emit(type);
+        break;
+      }
+    }
+
   }
 }

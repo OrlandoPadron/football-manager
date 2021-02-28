@@ -17,6 +17,8 @@ import { PlayerDetailsModalComponent } from './player-details-modal/player-detai
 import { ClickOutsideDirectiveDirective } from './directives/click-outside-directive.directive';
 import { AddButtonComponent } from './add-button/add-button.component';
 import { EditTeamComponent } from './edit-team/edit-team.component';
+import { AddNewTeamModalComponent } from './add-new-team-modal/add-new-team-modal.component';
+import { AddNewPlayerModalComponent } from './add-new-player-modal/add-new-player-modal.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { EditTeamComponent } from './edit-team/edit-team.component';
     ClickOutsideDirectiveDirective,
     AddButtonComponent,
     EditTeamComponent,
+    AddNewTeamModalComponent,
+    AddNewPlayerModalComponent,
 
   ],
   imports: [

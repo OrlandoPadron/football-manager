@@ -1,10 +1,11 @@
 <div class="container" [ngClass]="{'active': active}" #container>
-    <div class="dropdown" [ngStyle]="{'display': (!active) ? 'none' : ''}" >
+    <!-- [ngStyle]="{'display': (!active) ? 'none' : 'flex'}" -->
+    <div class="dropdown" >
         <ul class="options">
-            <li class="option">
+            <li class="option" (click)="openNewModal('newTeam')">
                 <span>Añadir equipo</span>
             </li>
-            <li class="option">
+            <li class="option" (click)="openNewModal('newPlayer')">
                 <span>Añadir jugador</span>
             </li>
         </ul>

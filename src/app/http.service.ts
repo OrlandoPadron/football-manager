@@ -43,6 +43,18 @@ export class HttpService {
     return this.http.get(GlobalConstants.apiURL+'players', {params: params});
   }
 
+
+  //Post method
+  newPlayer(_data:any){
+    const body = { 
+      "Nombre del Jugador": _data.value.name,
+      "Avatar": _data.value.avatar,
+      "teamId": _data.value.teamId
+    };
+
+    return this.http.post(GlobalConstants.apiURL+'players/', body);
+  }
+  
   //Put method
   editPlayer(_data:any){
     const body = { 
@@ -51,8 +63,6 @@ export class HttpService {
       "Avatar": _data.value.avatar,
       "teamId": _data.value.teamId
     };
-    console.log("llegué");
-    console.log(body);
 
     return this.http.put(GlobalConstants.apiURL+'players/'+_data.value.id, body);
   }
@@ -60,6 +70,17 @@ export class HttpService {
   //Player delete method
   deletePlayer(playerId:any){    
     return this.http.delete(GlobalConstants.apiURL+'players/'+playerId);
+  }
+
+
+  //Post method
+  newTeam(_data:any){
+    const body = { 
+      "Nombre del equipo": _data.value.name,
+      "Logo del Equipo": _data.value.avatar,
+      "Liga": _data.value.leagueId
+    };
+    return this.http.post(GlobalConstants.apiURL+'teams/', body);
   }
 
   // Team put method

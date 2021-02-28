@@ -8,7 +8,9 @@
 
     <app-team [teams]="teams" [leagueClicked]="leagueClicked"></app-team>
 
-    <app-add-button></app-add-button>
-    
+    <app-add-button (newAddEventClicked)="childNewTeamEventClicked($event)"></app-add-button>
+    <app-add-new-team-modal [leagues]="leagues"></app-add-new-team-modal>
+    <app-add-new-player-modal [teams]="teams"></app-add-new-player-modal>
+
 
 </div>

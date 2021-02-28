@@ -1,0 +1,40 @@
+<div class="container"  [hidden]="!visible">
+    <div class="modal-window">
+        <div class="header">
+            <span>Añadir equipo</span>
+        </div>
+        <div class="content">
+            <div class="upper-container">
+                <div class="upload-image">
+                    <img src="assets/placeholders/team-default.png" alt="image-selected">
+                    <!-- <button class="add-image"><i class="fas fa-cloud-upload-alt"></i>Subir imagen</button> -->
+                </div>
+                <form [formGroup]="addForm" id="addForm" class="form" (ngSubmit)="onSubmit(addForm)">
+                    <div class="pair">
+                        <label for="">Nombre del equipo</label>
+                        <input type="text" formControlName="name">
+        
+                    </div>
+                    <div class="pair">
+                        <label for="">Liga</label>
+                        <select type="text" formControlName="leagueId" *ngIf="leagues">
+                            <option *ngFor="let league of leagues" [ngValue]="league['Identificador']" (change)="changeLeague(league)">{{league['Nombre De La Liga']}}</option>
+                        </select>
+
+        
+                    </div>
+                </form>
+            </div>
+            <div class="btn-containers">
+                <button class="save" type="submit" [disabled]="!addForm.valid" form="addForm">
+                    <i class="fas fa-check-circle"></i> Guardar
+                </button>
+                <button class="cancel" (click)="closeModal()">
+                    <i class="fas fa-times-circle"></i>Cancelar
+                </button>
+            </div>
+    
+        </div>
+
+    </div>
+</div>

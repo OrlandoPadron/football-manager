@@ -74,7 +74,6 @@ export class EditTeamComponent implements OnInit, OnChanges {
   }
 
   onSubmit(_data:any){
-    console.log(_data.value);
     this._http.editTeam(_data).subscribe(
       () => {
        window.location.reload();

@@ -53,7 +53,6 @@ export class PlayerDetailsModalComponent implements OnInit, OnChanges {
   }
 
   onSubmit(_data:any){
-    console.log(_data.value);
     this._http.editPlayer(_data).subscribe(()=>{
       window.location.reload();
     });

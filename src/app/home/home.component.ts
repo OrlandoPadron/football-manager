@@ -1,5 +1,7 @@
+import { AddNewPlayerModalComponent } from './../add-new-player-modal/add-new-player-modal.component';
+import { AddNewTeamModalComponent } from './../add-new-team-modal/add-new-team-modal.component';
 import { HttpService } from './../http.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +15,8 @@ export class HomeComponent implements OnInit {
   players:any = []; 
 
   public leagueClicked:any; 
+  @ViewChild(AddNewTeamModalComponent) addTeamModal!: AddNewTeamModalComponent;
+  @ViewChild(AddNewPlayerModalComponent) addPlayerModal!: AddNewPlayerModalComponent;
 
   constructor(private _http:HttpService) { }
 
@@ -36,6 +40,18 @@ export class HomeComponent implements OnInit {
 
   childLeagueClicked(league:any){
     this.leagueClicked = league;
+  }
+
+  childNewTeamEventClicked(type:any){
+    switch (type){
+      case 'newTeam':{
+        this.addTeamModal.visible=true;
+        break;
+      }
+      case 'newPlayer':{
+        this.addPlayerModal.visible=true;
+      }
+    }
   }
 
 }
