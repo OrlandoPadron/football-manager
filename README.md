@@ -1,3 +1,5 @@
+<img src="https://live.staticflickr.com/65535/50990972721_5b622b6e13_h.jpg">
+
 # FootballManager
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
