@@ -1,6 +1,9 @@
 <img src="https://live.staticflickr.com/65535/50990972721_5b622b6e13_h.jpg">
 
-# FootballManager
+
+# Football App 
+
+The interface of this project has been designed to be displayed on **mobile screens**. For optimal viewing, configure your browser window to match the screen size of the **iPhone X** *(375 x 812)*.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
 
