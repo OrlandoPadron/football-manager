@@ -1,5 +1,5 @@
-import { PlayerDetailsModalComponent } from './../player-details-modal/player-details-modal.component';
-import { HttpService } from './../http.service';
+import { PlayerDetailsModalComponent } from '../player-details-modal/player-details-modal.component';
+import { HttpService } from '../../services/http-service/http.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 

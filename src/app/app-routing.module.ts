@@ -1,7 +1,7 @@
-import { PlayerDetailsComponent } from './player-details/player-details.component';
-import { TeamDetailsComponent } from './team-details/team-details.component';
-import { HomeComponent } from './home/home.component';
-import { NgModule, Component } from '@angular/core';
+import { PlayerDetailsComponent } from './components/player-details/player-details.component';
+import { TeamDetailsComponent } from './components/team-details/team-details.component';
+import { HomeComponent } from './components/home/home.component';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 

@@ -1,6 +1,6 @@
-import { AddNewPlayerModalComponent } from './../add-new-player-modal/add-new-player-modal.component';
-import { AddNewTeamModalComponent } from './../add-new-team-modal/add-new-team-modal.component';
-import { HttpService } from './../http.service';
+import { AddNewPlayerModalComponent } from '../add-new-player-modal/add-new-player-modal.component';
+import { AddNewTeamModalComponent } from '../add-new-team-modal/add-new-team-modal.component';
+import { HttpService } from '../../services/http-service/http.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({

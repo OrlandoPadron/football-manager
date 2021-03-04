@@ -1,5 +1,5 @@
-import { EditTeamComponent } from './../edit-team/edit-team.component';
-import { HttpService } from './../http.service';
+import { EditTeamComponent } from '../edit-team/edit-team.component';
+import { HttpService } from '../../services/http-service/http.service';
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 

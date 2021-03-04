@@ -4,21 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
-import { LeagueComponent } from './league/league.component';
-import { PlayerComponent } from './player/player.component';
-import { TeamComponent } from './team/team.component';
-import { HomeComponent } from './home/home.component';
+import { SearchComponent } from './components/search/search.component';
+import { LeagueComponent } from './components/league/league.component';
+import { PlayerComponent } from './components/player/player.component';
+import { TeamComponent } from './components/team/team.component';
+import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TeamDetailsComponent } from './team-details/team-details.component';
-import { PlayerDetailsComponent } from './player-details/player-details.component';
-import { PlayerDetailsModalComponent } from './player-details-modal/player-details-modal.component';
+import { TeamDetailsComponent } from './components/team-details/team-details.component';
+import { PlayerDetailsComponent } from './components/player-details/player-details.component';
+import { PlayerDetailsModalComponent } from './components/player-details-modal/player-details-modal.component';
 import { ClickOutsideDirectiveDirective } from './directives/click-outside-directive.directive';
-import { AddButtonComponent } from './add-button/add-button.component';
-import { EditTeamComponent } from './edit-team/edit-team.component';
-import { AddNewTeamModalComponent } from './add-new-team-modal/add-new-team-modal.component';
-import { AddNewPlayerModalComponent } from './add-new-player-modal/add-new-player-modal.component';
+import { AddButtonComponent } from './components/add-button/add-button.component';
+import { EditTeamComponent } from './components/edit-team/edit-team.component';
+import { AddNewTeamModalComponent } from './components/add-new-team-modal/add-new-team-modal.component';
+import { AddNewPlayerModalComponent } from './components/add-new-player-modal/add-new-player-modal.component';
 
 @NgModule({
   declarations: [

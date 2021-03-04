@@ -1,4 +1,4 @@
-import { HttpService } from './../http.service';
+import { HttpService } from '../../services/http-service/http.service';
 import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
